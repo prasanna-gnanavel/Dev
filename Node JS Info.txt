@@ -1,0 +1,147 @@
+GIT comments
+-------------
+
+git init
+git status
+git add
+git commit -m "commiting"
+
+
+
+
+
+
+Type below command in command prompt to know the version
+-----------------------------------------------------------
+
+node -v 
+
+console.log("hello Prasanna");
+
+------
+function printstuff(stuff)
+{	
+
+console.log(stuff);
+}
+printstuff("hello Sir Prasanna");
+---------------------
+# calling function with another function
+function printstuff(stuff)
+{	
+
+console.log(stuff);
+}
+
+function mainfunction(anotherfunction,value)
+{
+	anotherfunction(value);
+	
+}
+mainfunction(printstuff,"hello function");
+-----------------------------------------------------------
+#Anonymous function 
+var printstuff =function(stuff)
+{	
+
+console.log(stuff);
+}
+
+function mainfunction(anotherfunction,value)
+{
+	anotherfunction(value);
+	
+}
+mainfunction(printstuff,"helloo function");
+-----------------------------------------------------------------------
+#same above program in simple line 
+function mainfunction(anotherfunction,value)
+{
+	anotherfunction(value);
+	
+}
+mainfunction(function(stuff){console.log(stuff);},"helweloo function1");
+
+-------------------------------------------------------------------------------------------------------------
+# in built functions 
+console.log(__filename);
+console.log(__dirname);
+
+function printstuff(){
+	console.log("This from set time out");
+}
+setTimeout(printstuff,5000);
+setInterval(printstuff,1000);
+
+-------------------------------------------------------------------------------------------------------------------
+#clear interval execution after 5 times
+function log(){
+	timesrun += 1;
+	
+	   if(timesrun === 5){
+        clearInterval(setid);
+    }
+	console.log("TCS");
+
+}
+var timesrun=0;
+var setid=setInterval(log,2000);
+-------------------------------------------------------------------------------------------------------------------
+#export modules
+#file nam is athletics 
+function sprint1(){
+	console.log("This is sprint 1");}
+module.exports.sprint1=sprint1
+
+# second file app.js to call the above module
+ 
+var athletics= require('./athletics');
+athletics.sprint1();
+-------------------------------------------------------------------------------------------------------------------
+var http = require('http');
+
+http.createServer(function(request,respond)
+{
+	respond.writeHead(200, {'Content-Type': 'text/plain'});
+	respond.write('Hello webservesr!');
+	respond.write('\n written by Prasanna');
+	respond.end();
+}).listen(8888);
+--------------------------------------------------------------------------------------------------------------------
+
+# Read the file Async and Sync mode
+
+var fs = require('fs');
+
+fs.readFile('input.txt',function(err,data)
+{
+		if(err) {
+		console.log("Error in reading the file" +err);}
+		else{
+			console.log(" The Async data is "+data.toString());
+		}
+});
+				
+var data=fs.readFileSync('input.txt');
+console.log("Sync data is "+data.toString());
+console.log("end of the program");
+
+--------------------------------------------------------------------------------------------------------------------
+#Event modules, triggers based on events
+
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+var ringbell= function(){
+	console.log(" Ring Ring");
+	eventEmitter.emit('bellrings','welcome');
+}
+eventEmitter.on('dooropen',ringbell);
+eventEmitter.on('bellrings', function(message){
+	console.log(message);
+})
+eventEmitter.emit('dooropen');
+--------------------------------------------------------------------------------------------------------------------
+
+
+
