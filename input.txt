@@ -1,0 +1,2 @@
+This is just a text file to give an input to the program.
+This file is created by SPGHi I am going through NodeJS E0 module
